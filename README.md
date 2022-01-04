@@ -1,5 +1,7 @@
 # spaceFlightNews
 
-Maria Alice Dias 
-Marta Oliveira
-Tiago Costa
+
+
+Maria Alice Dias <br>
+Marta Oliveira <br>
+Tiago Costa <br>
