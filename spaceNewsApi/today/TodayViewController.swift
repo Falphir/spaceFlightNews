@@ -58,7 +58,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         //let urlArticle = eachArticle["url"] as! URL
                         //let imageUrlArticle = eachArticle["imageUrl"] as! URL
                         let newsSiteArticle = eachArticle["newsSite"] as! String
-                        //let summaryArticle = eachArticle["summary"] as! String
+                        let summaryArticle = eachArticle["summary"] as! String?
                         let publishedAtArticle = eachArticle["publishedAt"] as! String
                         let updatedAtArticle = eachArticle["updatedAt"] as! String
                         let featuredArticle = eachArticle["featured"] as! Bool
