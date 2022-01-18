@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class DesignView: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var borderWidth: Int = 2
     
     @IBInspectable var shadowColor : UIColor? = UIColor.black
     
@@ -32,6 +33,13 @@ import UIKit
         layer.shadowPath = shadowPath.cgPath
         
         layer.shadowOpacity = shadowOpacity
+        
+        let borderColor = UIColor.red
+        
+        
+        
+        layer.borderColor = borderColor.cgColor
+       
         
     }
     

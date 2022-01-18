@@ -303,7 +303,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                         <color key="barTintColor" systemColor="systemPurpleColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,6 +396,9 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="32" height="32"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

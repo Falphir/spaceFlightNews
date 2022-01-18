@@ -21,6 +21,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         ArticlesTableView.delegate = self
         ArticlesTableView.dataSource = self
+        //ArticlesTableView.backgroundColor = UIColor.red
         //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
         parseData()
@@ -131,13 +132,19 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
         
         //backgroundColor da cell
-        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 0.5
+        let borderColor = UIColor(white: 1, alpha: 0.5)
+        cell.layer.borderColor = borderColor.cgColor
+        
+        //cell.layer.frame.offsetBy(dx: 0, dy: 10)
         
         //image API
         //cell.imageCell.image = fetchedArticle[indexPath.row].imageUrl
         cell.imageCell.backgroundColor = .systemGray
         
-        //title API
+        //title API
         cell.titleCell?.text = fetchedArticle[indexPath.row].title
 
         //newsSite API
