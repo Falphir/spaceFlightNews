@@ -29,49 +29,55 @@ class ArticleViewController : UIViewController {
 
         fetchedArticle = []
         
-        var id = "13120"
+        let id = "13120"
 
-        let url = "https://api.spaceflightnewsapi.net/v3/articles/" + id
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = "GET"
+        let urlString =  "https://api.spaceflightnewsapi.net/v3/articles/" + id
+        
 
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
-
-        let task = session.dataTask(with: request) { (data, response, error) in
-
-            if(error != nil){
-                print("error")
-
-            } else {
-                
-                let fetchedData = try JSONSerialization.jsonObject(with: data!, options: . mutableLeaves) as! NSArray
-
-                for eachFetchedArticle in fetchedData {
-
-                    let eachArticle = eachFetchedArticle as! [String: Any]
-
-                    let idArticle = eachArticle["id"] as! Int
-                    let titleArticle = eachArticle["title"] as! String
-                    //let urlArticle = eachArticle["url"] as! URL
-                    //let imageUrlArticle = eachArticle["imageUrl"] as! URL
-                    let newsSiteArticle = eachArticle["newsSite"] as! String
-                    let summaryArticle = eachArticle["summary"] as! String?
-                    let publishedAtArticle = eachArticle["publishedAt"] as! String
-                    let updatedAtArticle = eachArticle["updatedAt"] as! String
-                    let featuredArticle = eachArticle["featured"] as! Bool
-                    //let launchesArticle = eachArticle["launches"] as! Array<String>
-                    //let eventsArticle = eachArticle["events"] as! Array<String>
-
-
-                    self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
-                }
+        if let url 	= URL.init(string: urlString) {
+            let task = URLSession.shared.dataTask(
+                with: url,
+                completionHandler: { (data, response, error) in
 
                     
-                }
+                    print(String.init(data: data!, encoding: .ascii)	?? "No Data")
+                    /*
+                if(error != nil){
+                    print("error")
+
+                } else {
+                    
+                    let fetchedData = try JSONSerialization.jsonObject(with: data!, options: . mutableLeaves) as! NSArray
+
+                    for eachFetchedArticle in fetchedData {
+
+                        let eachArticle = eachFetchedArticle as! [String: Any]
+
+                        let idArticle = eachArticle["id"] as! Int
+                        let titleArticle = eachArticle["title"] as! String
+                        //let urlArticle = eachArticle["url"] as! URL
+                        //let imageUrlArticle = eachArticle["imageUrl"] as! URL
+                        let newsSiteArticle = eachArticle["newsSite"] as! String
+                        let summaryArticle = eachArticle["summary"] as! String?
+                        let publishedAtArticle = eachArticle["publishedAt"] as! String
+                        let updatedAtArticle = eachArticle["updatedAt"] as! String
+                        let featuredArticle = eachArticle["featured"] as! Bool
+                        //let launchesArticle = eachArticle["launches"] as! Array<String>
+                        //let eventsArticle = eachArticle["events"] as! Array<String>
+
+
+                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
+                    }
+
+                        
+                    }*/
+                })
+            task.resume()
             }
+
         }
-        task.resume()
+    
+        
     }
 
 
@@ -105,9 +111,4 @@ class ArticleViewController : UIViewController {
 }
     //---------------- FIM API ----------------//
     
-    func ArticleView() {
-        ArticleTitle.text = fetchedArticle.title
-    }
-    
-    
-}
+
